@@ -1,0 +1,151 @@
+.contact-list-online-status-select {
+  height: 0;
+  background-color: #DBD6CA;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.contact-list-online-status-select.show {
+  height: 45px;
+}
+
+.contact-list-online-status-wrapper {
+  padding: 5px;
+  color: #6E695A;
+}
+
+.status-label-wrapper {
+  display: inline-block;
+}
+
+label[for=user-status-select] {
+  display: inline;
+  font-weight: normal;
+}
+
+/** Select box **/
+#contact-list-user-status-select-wrapper {
+  border: 1px solid #ccc;
+  padding: 5px 5px;
+  color: #ccc;
+  background-color: #fff;
+  background-position: right center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  margin-left: 10px;
+}
+
+#contact-list-user-status-select-wrapper ul {
+  list-style: none; padding: 0; margin: 0;
+  position: absolute;
+  top: 30px; left: -1px; /* -1 for the border */
+  z-index: 5;
+  border: 1px solid #ccc;
+  width: 100%;
+  color: #ccc;
+  background-color: #fff;
+  display: none;
+}
+
+#contact-list-user-status-select-wrapper li {
+  list-style: none; padding: 0; margin: 0;
+  padding: 5px;
+}
+
+#contact-list-user-status-select-wrapper li.selected {
+  display: none;
+}
+
+#contact-list-select-user-select.open {
+  display: block;
+}
+
+#contact-list-user-status-select-wrapper li:hover {
+  background-color: #9F9988;
+  color: #fff;
+}
+#contact-list-user-status-select-wrapper.open {
+  border: 1px solid #9F9988;
+  color: #333;
+}
+#contact-list-user-status-select-wrapper.open ul {
+  border: 1px solid #9F9988;
+  color: #333;
+}
+
+#contact-list-user-status-select-wrapper .selected svg,
+#user-online-status-available svg {
+  vertical-align: middle;
+}
+
+/** dropdown arrow **/
+.svg-triangle {
+  height: 10px;
+  width: 10px;
+  vertical-align: middle;
+  margin-left: 10px;
+  fill: #ccc;
+}
+/** End Select box **/
+
+/** Instructors/Members blocks **/
+#block-babson-course-home-group-instructors .username .presence .presence-icon,
+#block-babson-course-home-group-members .username .presence .presence-icon {
+  margin-top: -23px;
+  margin-left: 18px;
+}
+
+/** Discussions reply **/
+.topic-author .account-id,
+.topic-author .presence-icon,
+[id^=comment-] .account-id,
+[id^=comment-] .presence-icon {
+  display: inline-block;
+  margin-right: -8px;
+}
+
+.topic-author .presence-icon,
+[id^=comment-] .presence-icon {
+  vertical-align: -2px;
+}
+
+/** Ribbon user presence icon when contact list status dropdown is selected **/
+.babson-status-available,
+#ribbon .views-field-name .presence-icon.change-available svg circle,
+.make-available svg circle {
+  fill: #A0C648;
+}
+.babson-status-unavailable,
+#ribbon .views-field-name .presence-icon.change-unavailable svg circle,
+.make-unavailable svg circle {
+  fill: #97362A;
+}
+.babson-status-invisible,
+#ribbon .views-field-name .presence-icon.change-invisible svg circle,
+.make-invisible svg circle {
+  fill: #CBCBCA;
+}
+
+/** Baseball card presence **/
+.hidden-user-pic-wrapper {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.hidden-user-pic-wrapper .presence .account-id,
+.hidden-user-pic-wrapper .presence .presence-icon {
+  display: inline-block;
+}
+
+.hidden-user-pic-wrapper .presence .presence-icon svg {
+  vertical-align: -3px;
+}
+
+/** Contact me popup **/
+.contact-me-button-wrapper .jabber-hangout-btn {
+  color: #5d7f91;
+  font-family: 'PT Sans';
+  font-size: 12px;
+}

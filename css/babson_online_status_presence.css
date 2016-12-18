@@ -1,0 +1,4 @@
+#block-statuses-statuses .statuses-item .presence,
+[id^=statuses-item] .presence {
+  display: inline-block;
+}

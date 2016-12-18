@@ -1,0 +1,7 @@
+name = Babson Online Status
+description = Drupal online status for user.
+core = 7.x
+package = Babson Custom
+dependencies[] = db_pdo_switch
+
+stylesheets[all][] = css/babson_online_status_presence.css

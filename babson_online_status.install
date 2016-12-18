@@ -1,0 +1,42 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the babson_online_status module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function babson_online_status_schema() {
+  $schema['babson_online_status'] = array(
+    'description' => 'Users can set their online status that will be shown to others.',
+    'fields' => array(
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 60,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The {users}.name',
+      ),
+      'online_status' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'Saved status: 1 = Available, 2 = Unavailable, 3 = Offline/Invisible',
+      ),
+    ),
+    'primary key' => array('name'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function babson_online_status_uninstall() {
+  if (db_table_exists('babson_online_status')) {
+    db_drop_table('babson_online_status');
+  }
+}

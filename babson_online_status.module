@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Drupal online status for user.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function babson_online_status_menu() {
+  $items = array();
+
+  $items['babson-online-status/contact-list-select-set-status'] = array(
+    'page callback' => 'babson_online_status_ajax_contact_list_set_status',
+    'access callback' => 'user_is_logged_in',
+    'type' => MENU_CALLBACK,
+    'file' => 'babson_online_status.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_init().
+ */
+function babson_online_status_init() {
+  global $user;
+
+  /*** Connect to Bell database. ***/
+  $connection = db_pdo_bell_switch();
+
+  // On every page load, update current user's access with current time.
+  // Only do this if the DB PDO SWITCH module is enabled and user is not
+  // on a admin page.  Also, don't run this in command line like drush or cron.
+  if (module_exists('db_pdo_switch') && !path_is_admin(current_path()) && !drupal_is_cli()) {
+    // Update access row in users table each time user hits a page to mark his/her presence online.
+    $update = $connection->prepare("UPDATE users set access = :access where name = :name");
+    $update->execute(array('access' => REQUEST_TIME, 'name' => $user->name));
+  }
+}
+
