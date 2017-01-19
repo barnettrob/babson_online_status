@@ -104,6 +104,9 @@ function babson_online_status_selectbox() {
     $color = $green;
   }
 
+  $username = check_plain($user->name);
+
+  // @todo: Convert this to phptemplate file.
   $online_status_select = '<div class="contact-list-online-status-select">';
   $online_status_select .=    '<div class="contact-list-online-status-wrapper">';
   $online_status_select .=      '<div class="status-label-wrapper">';
@@ -113,9 +116,9 @@ function babson_online_status_selectbox() {
   $online_status_select .=        '<span class="selected">' . $color .  $selected_text . '</span>' . $select_down_arrow;
   $online_status_select .=        '<input type="hidden" name="subject" value="' . $status_val . '" />';
   $online_status_select .=        '<ul id="contact-list-select-user-select">';
-  $online_status_select .=          '<li id="user-online-status-available" class="' . $user->name . $selected1 . '">' . $green . 'I\'m Available</li>';
-  $online_status_select .=          '<li id="user-online-status-unavailable" class="' . $user->name . $selected2 . '">' . $red . 'I\'m Unavailable</li>';
-  $online_status_select .=          '<li id="user-online-status-invisible" class="' . $user->name . $selected3 . '">' . $gray . 'I\'m Invisible</li>';
+  $online_status_select .=          '<li id="user-online-status-available" class="' . $username . $selected1 . '">' . $green . 'I\'m Available</li>';
+  $online_status_select .=          '<li id="user-online-status-unavailable" class="' . $username . $selected2 . '">' . $red . 'I\'m Unavailable</li>';
+  $online_status_select .=          '<li id="user-online-status-invisible" class="' . $username . $selected3 . '">' . $gray . 'I\'m Invisible</li>';
   $online_status_select .=        '</ul>';
   $online_status_select .=      '</div>'; // End #contact-list-user-status-select.
   $online_status_select .=    '</div>';
